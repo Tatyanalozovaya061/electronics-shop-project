@@ -17,7 +17,7 @@ class Item:
         self.name = name
         self.price = price
         self.quantity = quantity
-        Item.all.append(self.name)
+        Item.all.append(self)
 
     def calculate_total_price(self) -> str:
         """
