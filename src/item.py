@@ -29,6 +29,11 @@ class Item:
     def __str__(self):
         return str(self.__name)
 
+    def __add__(self, other):
+        if not isinstance(other, Item):
+            raise ValueError('Нельзя сложить `Phone` или `Item` с экземплярами не `Phone` или `Item` классов')
+        return self.quantity + other.quantity
+
     @property
     def name(self):
         return self.__name
