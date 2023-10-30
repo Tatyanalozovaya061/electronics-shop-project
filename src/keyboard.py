@@ -13,7 +13,7 @@ class MixinLanguage:
             self.__language = 'EN'
 
     @property
-    def lang(self):
+    def language(self):
         return self.__language
 
 
@@ -27,7 +27,3 @@ class Keyboard(MixinLanguage, Item):
 
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity}, {self.__language})"
-
-    @property
-    def language(self):
-        return self.lang
