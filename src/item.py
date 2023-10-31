@@ -3,8 +3,8 @@ import csv
 
 
 class InstantiateCSVError(Exception):
-    def __init__(self):
-        pass
+    def __init__(self, *args):
+        self.message = args[0] if args else 'Файл items_test.csv поврежден'
 
 class Item:
     """
@@ -64,10 +64,10 @@ class Item:
                     quantity = int(row['quantity'])
                     item = cls(name=name, price=price, quantity=quantity)
         except FileNotFoundError:
-            raise FileNotFoundError(f'Отсутствует файл {csvfile}')
+            raise FileNotFoundError('Отсутствует файл items.csv')
 
         except InstantiateCSVError:
-            raise InstantiateCSVError(f'Файл {csvfile} поврежден')
+            raise InstantiateCSVError('Файл items.csv поврежден')
 
 
     @staticmethod
